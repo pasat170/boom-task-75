@@ -2,17 +2,14 @@ import "./App.css";
 import { useState, useEffect } from "react";
 function App() {
     const [message, setMessage] = useState('');
-    const [note, setNote] = useState([]);
 
     const textNote = event => {
         setMessage(event.target.value);
-        localStorage.setItem("message", event.target.value);
         console.log(message);
     };
 
     const saveNote = () => {
-        setNote([...note, message]);
-        console.log(note);
+        localStorage.setItem("message", message);
     };
 
     const clearNote = () => {
